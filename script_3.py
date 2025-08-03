@@ -1,0 +1,553 @@
+# Create vendor-specific CSS
+vendor_css = '''/* Vendor Dashboard Styles */
+
+.vendor-body {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+}
+
+/* Vendor Navigation */
+.vendor-navbar {
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(236, 240, 241, 0.1);
+}
+
+.vendor-navbar .logo {
+    color: #3498db;
+}
+
+.vendor-navbar .nav-link {
+    color: #ecf0f1;
+}
+
+.vendor-navbar .nav-link:hover,
+.vendor-navbar .nav-link.active {
+    color: #3498db;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* Vendor Login */
+.vendor-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.login-card p {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.vendor-login-btn {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.vendor-login-btn:hover {
+    background: #2980b9;
+}
+
+.demo-credentials {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #3498db;
+}
+
+.demo-credentials h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.demo-credentials p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.vendor-signup {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.vendor-signup a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Dashboard */
+.vendor-dashboard {
+    margin-top: 80px;
+    padding: 2rem 0;
+}
+
+.dashboard-overview h2 {
+    color: #ecf0f1;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+}
+
+.stat-info h3 {
+    font-size: 2rem;
+    color: #ecf0f1;
+    margin-bottom: 0.2rem;
+}
+
+.stat-info p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin: 3rem 0;
+}
+
+.quick-actions h3 {
+    color: #ecf0f1;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.action-btn.validate:hover {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: #2ecc71;
+}
+
+.action-btn.menu:hover {
+    background: rgba(241, 196, 15, 0.2);
+    border-color: #f1c40f;
+}
+
+.action-btn.reports:hover {
+    background: rgba(155, 89, 182, 0.2);
+    border-color: #9b59b6;
+}
+
+.action-btn.settings:hover {
+    background: rgba(149, 165, 166, 0.2);
+    border-color: #95a5a6;
+}
+
+.action-btn i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Recent Transactions */
+.recent-transactions {
+    margin: 3rem 0;
+}
+
+.recent-transactions h3 {
+    color: #ecf0f1;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.transactions-table {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transactions-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table th {
+    background: rgba(52, 73, 94, 0.8);
+    color: #ecf0f1;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.transactions-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ecf0f1;
+}
+
+.transactions-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status.success {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.status.pending {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+.status.failed {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+/* Validation Modal */
+.validation-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.method-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #495057;
+}
+
+.method-btn:hover {
+    border-color: #3498db;
+    background: #3498db;
+    color: white;
+}
+
+.method-btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.qr-scanner {
+    margin: 2rem 0;
+}
+
+.scanner-area {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.scanner-area i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.demo-validate-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.demo-validate-btn:hover {
+    background: #138496;
+}
+
+/* Validation Result */
+.validation-success {
+    text-align: center;
+    padding: 2rem;
+    background: #d4edda;
+    border-radius: 10px;
+    color: #155724;
+}
+
+.validation-success i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.validation-success h3 {
+    color: #155724;
+    margin-bottom: 1.5rem;
+}
+
+.coupon-details {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.coupon-details p {
+    margin: 0.5rem 0;
+    color: #495057;
+}
+
+.validation-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.accept-btn {
+    flex: 1;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.accept-btn:hover {
+    background: #218838;
+}
+
+.reject-btn {
+    flex: 1;
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reject-btn:hover {
+    background: #c82333;
+}
+
+/* Payment Modal */
+.payment-details {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.payment-details h3 {
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 0 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #28a745;
+}
+
+.items-ordered {
+    margin: 1.5rem 0;
+}
+
+.items-ordered h4 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.items-ordered textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.complete-btn {
+    flex: 2;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.complete-btn:hover {
+    background: #218838;
+}
+
+.cancel-btn {
+    flex: 1;
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn:hover {
+    background: #5a6268;
+}
+
+/* Responsive Design for Vendor */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .validation-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-actions {
+        flex-direction: column;
+    }
+    
+    .validation-actions {
+        flex-direction: column;
+    }
+    
+    .transactions-table {
+        overflow-x: auto;
+    }
+    
+    .transactions-table table {
+        min-width: 600px;
+    }
+}'''
+
+# Save vendor CSS
+with open('css/vendor.css', 'w', encoding='utf-8') as f:
+    f.write(vendor_css)
+
+print("✅ Created css/vendor.css - Vendor dashboard styling")

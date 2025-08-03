@@ -1,4 +1,5 @@
-# 🎉 BirthdayTreats - Digital Birthday Coupon Platform
+# Create a comprehensive README file with setup instructions
+readme_content = '''# 🎉 BirthdayTreats - Digital Birthday Coupon Platform
 
 A fun and innovative platform that allows students to create digital birthday coupons for their friends, redeemable at college canteens and local restaurants. Built with HTML, CSS, and JavaScript for easy deployment and use.
 
@@ -54,10 +55,10 @@ A fun and innovative platform that allows students to create digital birthday co
    ```bash
    # Python 3
    python -m http.server 8000
-
+   
    # Python 2
    python -m SimpleHTTPServer 8000
-
+   
    # Node.js
    npx http-server
    ```
@@ -237,3 +238,10 @@ For support, please:
 **Built with ❤️ for college students who want to celebrate birthdays together, even when apart!**
 
 🎂 Happy Birthday to everyone using this platform! 🎉
+'''
+
+# Save README file
+with open('README.md', 'w', encoding='utf-8') as f:
+    f.write(readme_content)
+
+print("✅ Created README.md - Comprehensive documentation and setup guide")

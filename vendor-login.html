@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard - BirthdayTreats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="vendor-body">
+    <!-- Vendor Navigation -->
+    <nav class="vendor-navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <span>Vendor Dashboard</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <a href="#validate" class="nav-link">Validate Coupon</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+                <a href="#settings" class="nav-link">Settings</a>
+                <button class="logout-btn" onclick="vendorLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section (shown first) -->
+    <div id="vendorLogin" class="vendor-login">
+        <div class="login-container">
+            <div class="login-card">
+                <h2>🏪 Vendor Login</h2>
+                <p>Welcome to BirthdayTreats Partner Portal</p>
+
+                <form id="vendorLoginForm">
+                    <div class="form-group">
+                        <label>Restaurant/Canteen</label>
+                        <select id="vendorSelect" required>
+                            <option value="">Select your establishment</option>
+                            <option value="iit-delhi-canteen">IIT Delhi Central Canteen</option>
+                            <option value="du-miranda-cafe">DU Miranda House Cafeteria</option>
+                            <option value="amity-food-court">Amity University Food Court</option>
+                            <option value="punjabi-dhaba-vit">Punjabi Dhaba Near VIT</option>
+                            <option value="south-indian-bits">South Indian Corner - BITS</option>
+                            <option value="ccd-nit">Café Coffee Day - NIT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="vendorUsername" placeholder="Enter username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="vendorPassword" placeholder="Enter password" required>
+                    </div>
+
+                    <button type="submit" class="vendor-login-btn">Login to Dashboard</button>
+                </form>
+
+                <div class="demo-credentials">
+                    <h4>Demo Credentials:</h4>
+                    <p><strong>Username:</strong> demo | <strong>Password:</strong> demo123</p>
+                </div>
+
+                <div class="vendor-signup">
+                    <p>New partner? <a href="#" onclick="showVendorSignup()">Register your establishment</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section (hidden initially) -->
+    <div id="vendorDashboard" class="vendor-dashboard" style="display: none;">
+        <!-- Dashboard Overview -->
+        <section class="dashboard-overview">
+            <div class="container">
+                <h2>Welcome back, <span id="vendorName">Demo Restaurant</span>!</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3>₹2,450</h3>
+                            <p>Today's Revenue</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🎫</div>
+                        <div class="stat-info">
+                            <h3>23</h3>
+                            <p>Coupons Redeemed</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>18</h3>
+                            <p>Unique Customers</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3>4.8</h3>
+                            <p>Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="container">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-btn validate" onclick="showQuickValidate()">
+                        <i class="fas fa-qrcode"></i>
+                        Validate Coupon
+                    </button>
+                    <button class="action-btn menu" onclick="showMenuManager()">
+                        <i class="fas fa-utensils"></i>
+                        Manage Menu
+                    </button>
+                    <button class="action-btn reports" onclick="showReports()">
+                        <i class="fas fa-chart-bar"></i>
+                        View Reports
+                    </button>
+                    <button class="action-btn settings" onclick="showVendorSettings()">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Transactions -->
+        <section class="recent-transactions">
+            <div class="container">
+                <h3>Recent Coupon Redemptions</h3>
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Coupon Code</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Items</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsBody">
+                            <tr>
+                                <td>14:30</td>
+                                <td>BD23A1C7</td>
+                                <td>Priya S.</td>
+                                <td>₹200</td>
+                                <td>Chole Bhature, Tea</td>
+                                <td><span class="status success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>13:45</td>
+                                <td>BD23B2D8</td>
+                                <td>Arjun K.</td>
+                                <td>₹150</td>
+                                <td>Maggi, Cold Coffee</td>
+                                <td><span class="status success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>12:20</td>
+                                <td>BD23C3E9</td>
+                                <td>Sneha M.</td>
+                                <td>₹300</td>
+                                <td>Biryani, Lassi</td>
+                                <td><span class="status success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Coupon Validation Modal -->
+    <div id="validateCouponModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeValidateModal()">&times;</span>
+            <h2>🔍 Validate Coupon</h2>
+
+            <div class="validation-methods">
+                <button class="method-btn" onclick="startQRValidation()">
+                    <i class="fas fa-qrcode"></i>
+                    Scan QR Code
+                </button>
+                <button class="method-btn" onclick="startCodeValidation()">
+                    <i class="fas fa-keyboard"></i>
+                    Enter Code Manually
+                </button>
+            </div>
+
+            <div id="qrValidationDiv" style="display: none;">
+                <div class="qr-scanner">
+                    <div class="scanner-area">
+                        <i class="fas fa-camera"></i>
+                        <p>Point camera at QR code</p>
+                        <button class="demo-validate-btn" onclick="simulateValidation()">Demo Validation</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="codeValidationDiv" style="display: none;">
+                <input type="text" id="validationCodeInput" placeholder="Enter 8-digit coupon code" maxlength="8">
+                <button onclick="validateCouponByCode()">Validate</button>
+            </div>
+
+            <div id="validationResult" style="display: none;">
+                <div class="validation-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Valid Coupon!</h3>
+                    <div class="coupon-details">
+                        <p><strong>Code:</strong> <span id="validatedCode">BD23A1C7</span></p>
+                        <p><strong>Value:</strong> ₹<span id="validatedAmount">200</span></p>
+                        <p><strong>From:</strong> <span id="validatedSender">Rahul Kumar</span></p>
+                        <p><strong>Message:</strong> <span id="validatedMessage">"Happy Birthday Priya! Enjoy!"</span></p>
+                        <p><strong>Valid Until:</strong> <span id="validatedExpiry">Today 11:59 PM</span></p>
+                    </div>
+                    <div class="validation-actions">
+                        <button class="accept-btn" onclick="acceptCoupon()">Accept & Process Payment</button>
+                        <button class="reject-btn" onclick="rejectCoupon()">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Processing Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h2>💳 Process Payment</h2>
+            <div class="payment-details">
+                <h3>Order Summary</h3>
+                <div class="order-item">
+                    <span>Coupon Value:</span>
+                    <span>₹<span id="paymentAmount">200</span></span>
+                </div>
+                <div class="order-item">
+                    <span>Platform Fee (2%):</span>
+                    <span>₹<span id="platformFee">4</span></span>
+                </div>
+                <div class="order-total">
+                    <span>You Receive:</span>
+                    <span>₹<span id="vendorReceives">196</span></span>
+                </div>
+            </div>
+
+            <div class="items-ordered">
+                <h4>Items to Prepare:</h4>
+                <textarea id="orderItems" placeholder="Enter items customer ordered..." rows="3"></textarea>
+            </div>
+
+            <div class="payment-actions">
+                <button class="complete-btn" onclick="completeTransaction()">Complete Transaction</button>
+                <button class="cancel-btn" onclick="cancelTransaction()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vendor.js"></script>
+</body>
+</html>

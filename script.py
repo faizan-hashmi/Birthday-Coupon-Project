@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+# Create the main HTML file for the birthday coupon platform
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -163,7 +164,7 @@
                         <input type="date" id="birthdayDate" required>
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label>Friends' Details (one per line)</label>
                     <textarea id="friendsList" placeholder="Priya - 9876543210&#10;Arjun - 9876543211&#10;Sneha - 9876543212" rows="4" required></textarea>
@@ -255,7 +256,7 @@
                     Enter Coupon Code
                 </button>
             </div>
-
+            
             <div id="qrScannerDiv" style="display: none;">
                 <div class="scanner-placeholder">
                     <i class="fas fa-camera"></i>
@@ -263,7 +264,7 @@
                     <button class="demo-btn" onclick="simulateQRScan()">Simulate QR Scan (Demo)</button>
                 </div>
             </div>
-
+            
             <div id="couponCodeDiv" style="display: none;">
                 <input type="text" id="couponCodeInput" placeholder="Enter coupon code" maxlength="8">
                 <button onclick="validateCouponCode()">Validate Coupon</button>
@@ -286,4 +287,10 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script src="js/app.js"></script>
 </body>
-</html>
+</html>'''
+
+# Save the HTML file
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ Created index.html - Main user interface")
